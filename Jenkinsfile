@@ -72,7 +72,6 @@ node {
                 echo "Building inviwo-openmesh. Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
                 dir('inviwo-openmesh/modules/openmesh') {
                     checkout scm
-                    sh 'rm modules/glfw/ext/glfw/glfw'
                     sh 'git submodule sync'
                     sh 'git submodule update --init'
                 }
@@ -81,6 +80,7 @@ node {
                     git([branches: '*/master', 
                          credentialsId: 'bc26c365-0b51-47cf-8af0-4043bd3e054c', 
                         url: 'https://github.com/inviwo/inviwo.git'])
+                    sh 'git submodule sync'
                     sh 'git submodule update --init'
                 }
             }
