@@ -41,8 +41,11 @@
 #define _USE_MATH_DEFINES
 #endif
 
+#include <warn/push>
+#include <warn/ignore/all>
 #include <OpenMesh/Core/IO/MeshIO.hh>  // this needs to be included before TriMesh_ArrayKernelT
 #include <OpenMesh/Core/Mesh/TriMesh_ArrayKernelT.hh>
+#include <warn/pop>
 
 #ifdef _USE_MATH_DEFINES_WAS_DEFINED
 #undef _USE_MATH_DEFINES

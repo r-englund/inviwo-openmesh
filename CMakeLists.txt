@@ -5,12 +5,20 @@ ivw_module(OpenMesh)
 #--------------------------------------------------------------------
 # Add OpenMesh add set correct folders
 option(OPENMESH_BUILD_PYTHON_BINDINGS "" OFF)
+
+set( BUILD_APPS OFF CACHE BOOL "Enable or disable building of apps" )
+
 add_subdirectory(ext/OpenMesh)
-ivw_folder(doc ext/OpenMesh)
-ivw_folder(doc-install ext/OpenMesh)
+if(TARGET doc)
+    ivw_folder(doc ext/OpenMesh)
+endif()
+if(TARGET doc-install)
+    ivw_folder(doc-install ext/OpenMesh)
+endif()
 if(TARGET winhelp)
     ivw_folder(winhelp ext/OpenMesh)
 endif()
+
 ivw_folder(OpenMeshCore ext/OpenMesh)
 ivw_folder(OpenMeshTools ext/OpenMesh)
 
@@ -19,16 +27,16 @@ ivw_folder(OpenMeshTools ext/OpenMesh)
 #--------------------------------------------------------------------
 # Add header files
 set(HEADER_FILES
-    include/inviwo/openmesh/openmeshmodule.h
-    include/inviwo/openmesh/openmeshmoduledefine.h
-    include/inviwo/openmesh/openmeshreader.h
-    include/inviwo/openmesh/openmeshwriter.h
-    include/inviwo/openmesh/processors/meshdecimationprocessor.h
-    include/inviwo/openmesh/processors/trianglestowireframe.h
-    include/inviwo/openmesh/utils/meshdecimation.h
-    include/inviwo/openmesh/utils/meshiteratorutils.h
-    include/inviwo/openmesh/utils/meshproximity.h
-    include/inviwo/openmesh/utils/openmeshconverters.h
+    include/modules/openmesh/openmeshmodule.h
+    include/modules/openmesh/openmeshmoduledefine.h
+    include/modules/openmesh/openmeshreader.h
+    include/modules/openmesh/openmeshwriter.h
+    include/modules/openmesh/processors/meshdecimationprocessor.h
+    include/modules/openmesh/processors/trianglestowireframe.h
+    include/modules/openmesh/utils/meshdecimation.h
+    include/modules/openmesh/utils/meshiteratorutils.h
+    include/modules/openmesh/utils/meshproximity.h
+    include/modules/openmesh/utils/openmeshconverters.h
 )
 ivw_group("Header Files" ${HEADER_FILES})
 

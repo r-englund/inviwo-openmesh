@@ -177,7 +177,7 @@ void createVertexBuffers(TriMesh &mesh, const Mesh &inmesh, TransformCoordinates
                     mesh.set_texcoord3D(VH(i++), {v.x, v.y, 0});
                 }
             } else if (auto t3 = std::dynamic_pointer_cast<const Buffer<vec3>>(buf.second)) {
-                size_t i = 0;
+                int i = 0;
                 for (auto &v : t3->getRAMRepresentation()->getDataContainer()) {
                     mesh.set_texcoord3D(VH(i++), {v.x, v.y, v.z});
                 }
@@ -210,7 +210,7 @@ TriMesh fromInviwo(const Mesh &inmesh, TransformCoordinates transform) {
     for (auto &ib : inmesh.getIndexBuffers()) {
         if (ib.first.dt == DrawType::Triangles) {
             meshutil::forEachTriangle(ib.first, *ib.second,
-                                      [&mesh](size_t i0, size_t i1, size_t i2) {
+                                      [&mesh](uint32_t i0, uint32_t i1, uint32_t i2) {
                                           using VH = OpenMesh::VertexHandle;
                                           mesh.add_face(VH(i0), VH(i1), VH(i2));
                                       });

@@ -35,18 +35,18 @@
 
 #include <inviwo/core/util/clock.h>
 
-
-
 #ifndef _USE_MATH_DEFINES
 #define _USE_MATH_DEFINES_WAS_DEFINED
 #define _USE_MATH_DEFINES
 #endif
 
-#include <OpenMesh/Core/IO/MeshIO.hh> // this needs to be included before TriMesh_ArrayKernelT
+#include <warn/push>
+#include <warn/ignore/all>
+#include <OpenMesh/Core/IO/MeshIO.hh>  // this needs to be included before TriMesh_ArrayKernelT
 #include <OpenMesh/Core/Mesh/TriMesh_ArrayKernelT.hh>
-
 #include <OpenMesh/Tools/Decimater/DecimaterT.hh>
 #include <OpenMesh/Tools/Decimater/ModQuadricT.hh>
+#include <warn/pop>
 
 #ifdef _USE_MATH_DEFINES_WAS_DEFINED
 #undef _USE_MATH_DEFINES
@@ -77,8 +77,8 @@ void decimate(Mesh &mesh, VertexFraction vertexFraction, FaceFraction faceFracti
     decimater.add(hModQuadric);
     decimater.module(hModQuadric).unset_max_err();
     decimater.initialize();
-    decimater.decimate_to_faces(mesh.n_vertices() * vertexFraction.fraction,
-                                mesh.n_vertices() * faceFraction.fraction);
+    decimater.decimate_to_faces(static_cast<size_t>(mesh.n_vertices() * vertexFraction.fraction),
+                                static_cast<size_t>(mesh.n_vertices() * faceFraction.fraction));
     mesh.garbage_collection();
 }
 

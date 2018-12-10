@@ -31,10 +31,13 @@
 
 #include <modules/openmesh/utils/openmeshconverters.h>
 
+#include <warn/push>
+#include <warn/ignore/all>
 #define _USE_MATH_DEFINES
 #include <OpenMesh/Core/IO/MeshIO.hh>
 #include <OpenMesh/Core/Mesh/TriMesh_ArrayKernelT.hh>
 #include <OpenMesh/Core/IO/IOManager.hh>
+#include <warn/pop>
 
 namespace inviwo {
 
@@ -60,8 +63,7 @@ inviwo::OpenMeshWriter* OpenMeshWriter::clone() const { return new OpenMeshWrite
 
 void OpenMeshWriter::writeData(const Mesh* data, const std::string filePath) const {
     auto mesh = openmeshutil::fromInviwo(*data);
-    OpenMesh::IO::write_mesh(mesh,filePath);
+    OpenMesh::IO::write_mesh(mesh, filePath);
 }
-
 
 }  // namespace inviwo

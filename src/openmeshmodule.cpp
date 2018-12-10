@@ -41,7 +41,10 @@
 #define _USE_MATH_DEFINES
 #endif
 
+#include <warn/push>
+#include <warn/ignore/all>
 #include <OpenMesh/Core/System/config.h>
+#include <warn/pop>
 
 #ifdef _USE_MATH_DEFINES_WAS_DEFINED
 #undef _USE_MATH_DEFINES

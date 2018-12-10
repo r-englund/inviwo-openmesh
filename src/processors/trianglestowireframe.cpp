@@ -30,15 +30,13 @@
 #include <modules/openmesh/processors/trianglestowireframe.h>
 #include <modules/openmesh/utils/meshiteratorutils.h>
 
-
 namespace inviwo {
-
 
 // The Class Identifier has to be globally unique. Use a reverse DNS naming scheme
 const ProcessorInfo TrianglesToWireframe::processorInfo_{
     "org.inviwo.TrianglesToWireframe",  // Class identifier
     "Triangles To Wireframe",           // Display name
-    "Undefined",                        // Category
+    "Mesh Operation",                   // Category
     CodeState::Experimental,            // Code state
     Tags::None,                         // Tags
 };
@@ -81,10 +79,11 @@ void TrianglesToWireframe::process() {
                                               vec.push_back(i0);
                                           });
             } else if (ib.first.dt == DrawType::Lines) {
-                meshutil::forEachLineSegment(ib.first, *ib.second, [&vec](uint32_t i0, uint32_t i1) {
-                    vec.push_back(i0);
-                    vec.push_back(i1);
-                });
+                meshutil::forEachLineSegment(ib.first, *ib.second,
+                                             [&vec](uint32_t i0, uint32_t i1) {
+                                                 vec.push_back(i0);
+                                                 vec.push_back(i1);
+                                             });
             }
         }
 

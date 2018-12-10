@@ -32,9 +32,12 @@
 #include <modules/openmesh/utils/openmeshconverters.h>
 
 #define _USE_MATH_DEFINES
+#include <warn/push>
+#include <warn/ignore/all>
 #include <OpenMesh/Core/IO/MeshIO.hh>
 #include <OpenMesh/Core/Mesh/TriMesh_ArrayKernelT.hh>
 #include <OpenMesh/Core/IO/IOManager.hh>
+#include <warn/pop>
 
 namespace inviwo {
 

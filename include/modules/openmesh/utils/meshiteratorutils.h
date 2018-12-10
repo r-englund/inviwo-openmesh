@@ -68,7 +68,7 @@ void forEachTriangle(const Mesh::MeshInfo &info, const IndexBuffer &ib, Callback
     }
 
     else if (info.ct == ConnectivityType::Fan) {
-        size_t a = ram.front();
+        uint32_t a = static_cast<uint32_t>(ram.front());
         for (size_t i = 1; i < ram.size(); i++) {
             callback(a, ram[i], ram[i + 1]);
         }
