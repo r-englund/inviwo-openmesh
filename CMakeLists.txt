@@ -19,30 +19,31 @@ ivw_folder(OpenMeshTools ext/OpenMesh)
 #--------------------------------------------------------------------
 # Add header files
 set(HEADER_FILES
-    #${CMAKE_CURRENT_SOURCE_DIR}/meshprocessor.h
-    ${CMAKE_CURRENT_SOURCE_DIR}/openmeshreader.h
-    ${CMAKE_CURRENT_SOURCE_DIR}/openmeshwriter.h
-    ${CMAKE_CURRENT_SOURCE_DIR}/processors/meshdecimationprocessor.h
-    ${CMAKE_CURRENT_SOURCE_DIR}/processors/trianglestowireframe.h
-    ${CMAKE_CURRENT_SOURCE_DIR}/utils/meshdecimation.h
-    ${CMAKE_CURRENT_SOURCE_DIR}/utils/meshiteratorutils.h
-    ${CMAKE_CURRENT_SOURCE_DIR}/utils/meshproximity.h
-    ${CMAKE_CURRENT_SOURCE_DIR}/utils/openmeshconverters.h
+    include/inviwo/openmesh/openmeshmodule.h
+    include/inviwo/openmesh/openmeshmoduledefine.h
+    include/inviwo/openmesh/openmeshreader.h
+    include/inviwo/openmesh/openmeshwriter.h
+    include/inviwo/openmesh/processors/meshdecimationprocessor.h
+    include/inviwo/openmesh/processors/trianglestowireframe.h
+    include/inviwo/openmesh/utils/meshdecimation.h
+    include/inviwo/openmesh/utils/meshiteratorutils.h
+    include/inviwo/openmesh/utils/meshproximity.h
+    include/inviwo/openmesh/utils/openmeshconverters.h
 )
 ivw_group("Header Files" ${HEADER_FILES})
 
 #--------------------------------------------------------------------
 # Add source files
 set(SOURCE_FILES
-    #${CMAKE_CURRENT_SOURCE_DIR}/meshprocessor.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/openmeshreader.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/openmeshwriter.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/processors/meshdecimationprocessor.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/processors/trianglestowireframe.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/utils/meshdecimation.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/utils/meshiteratorutils.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/utils/meshproximity.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/utils/openmeshconverters.cpp
+    src/openmeshmodule.cpp
+    src/openmeshreader.cpp
+    src/openmeshwriter.cpp
+    src/processors/meshdecimationprocessor.cpp
+    src/processors/trianglestowireframe.cpp
+    src/utils/meshdecimation.cpp
+    src/utils/meshiteratorutils.cpp
+    src/utils/meshproximity.cpp
+    src/utils/openmeshconverters.cpp
 )
 ivw_group("Source Files" ${SOURCE_FILES})
 
@@ -81,3 +82,5 @@ ivw_register_license_file(NAME OpenMesh VERSION 7.0 MODULE Mesh TYPE "3-clause B
 #--------------------------------------------------------------------
 # Add shader directory to pack
 # ivw_add_to_module_pack(${CMAKE_CURRENT_SOURCE_DIR}/glsl)
+
+
